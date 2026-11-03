@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise For You 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    background: linear-gradient(135deg, #ffe0ed, #fff0f5, #ffd6e7);
+    color: #a34470;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 30px 18px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page.active {
+    display: flex;
+}
+
+.card {
+    background: rgba(255,255,255,0.85);
+    padding: 30px 22px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px #e99abb55;
+    width: 100%;
+    max-width: 430px;
+}
+
+h1 {
+    color: #d45d91;
+}
+
+p {
+    line-height: 1.7;
+}
+
+input {
+    width: 90%;
+    padding: 14px;
+    border: 2px solid #f4a9c9;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 5px;
+    outline: none;
+}
+
+button {
+    background: #ec83b0;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 13px 23px;
+    margin: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d95891;
+    transform: scale(1.06);
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.option {
+    background: #fff0f6;
+    color: #b94f80;
+    border: 2px solid #f7bad3;
+    border-radius: 20px;
+    padding: 25px 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option:hover {
+    background: #ffd6e7;
+    transform: translateY(-5px);
+}
+
+.emoji {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    animation: floatUp 7s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+#message {
+    color: #d14d89;
+    margin-top: 12px;
+}
+
+.photo {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 10px;
+    object-fit: cover;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HOMEPAGE -->
+<section id="home" class="page active">
+<div class="card content">
+    <div style="font-size:65px">🎀</div>
+    <h1>A Little Secret...</h1>
+    <p>Welcome, my love! 💗</p>
+    <p>I prepared something special for you.
+    But first, you need to enter our secret passcode.</p>
+
+    <input type="password" id="passcode"
+    placeholder="******" maxlength="6">
+
+    <br><br>
+    <button onclick="unlock()">UNLOCK 💌</button>
+    <p id="message"></p>
+    <small>Hint: A special date for us ♡</small>
+</div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="page">
+<div class="card content">
+    <div style="font-size:55px">💗</div>
+    <h1>Yay! You're Here!</h1>
+    <p>Choose your surprise, baby! 🥺</p>
+
+    <div class="menu">
+        <div class="option" onclick="showPage('letter')">
+            <span class="emoji">💌</span>
+            A Letter for You
+        </div>
+
+        <div class="option" onclick="showPage('memories')">
+            <span class="emoji">📸</span>
+            Our Memories
+        </div>
+
+        <div class="option" onclick="showPage('reasons')">
+            <span class="emoji">💗</span>
+            Why I Love You
+        </div>
+
+        <div class="option" onclick="showPage('surprise')">
+            <span class="emoji">🥺</span>
+            The Biggest Surprise
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- LETTER -->
+<section id="letter" class="page">
+<div class="card content">
+    <div style="font-size:55px">💌</div>
+    <h1>A Letter For You</h1>
+    <p>
+        Hi, my love! ❤️
+        <br><br>
+        I just want you to know how special you are to me.
+        You make my days brighter, my heart happier,
+        and my life more beautiful.
+        <br><br>
+        Thank you for being you.
+        I hope this little surprise makes you smile
+        because you deserve all the happiness in the world.
+        <br><br>
+        I love you so much! 💗
+    </p>
+    <button onclick="showPage('menu')">← Back</button>
+</div>
+</section>
+
+<!-- MEMORIES -->
+<section id="memories" class="page">
+<div class="card content">
+    <div style="font-size:55px">📸</div>
+    <h1>Our Little Memories</h1>
+    <p>Every moment with you is special. 🥹</p>
+
+    <!-- Replace these with your own pictures -->
+    <img src="photo1.jpg" class="photo"
+    alt="Our first memory">
+
+
+    <img src="photo2.jpg" class="photo"
+    alt="Another memory">
+	
+	
+    <img src="photo3.jpg" class="photo"
+    alt="Another memory">
+	
+	<img src="photo4.jpg" class="photo"
+    alt="Another memory">
+	
+	<img src="photo5.jpg" class="photo"
+    alt="Another memory">
+    <p>More memories to make together! ♡</p>
+
+    <button onclick="showPage('menu')">← Back</button>
+</div>
+</section>
+
+<!-- REASONS -->
+<section id="reasons" class="page">
+<div class="card content">
+    <div style="font-size:55px">💗</div>
+    <h1>Reasons Why I Love You</h1>
+
+    <p>
+        ♡ Your make me happy.<br><br>
+		♡ Your make me feel loved.<br><br>
+        ♡ You make me feel special.<br><br>
+		♡ You make sure I'm not hungry.<br><br>
+        ♡ I love the way you care for me.<br><br>
+        ♡ You make ordinary moments memorable.<br><br>
+        ♡ Most importantly, I love you simply because you're YOU.
+    </p>
+
+    <button onclick="showPage('menu')">← Back</button>
+</div>
+</section>
+
+<!-- BIGGEST SURPRISE -->
+<section id="surprise" class="page">
+<div class="card content">
+    <div style="font-size:75px">🥺💗</div>
+    <h1>One Last Thing...</h1>
+
+    <p>
+        There's something I've been wanting to tell you...
+        <br><br>
+        <br><br>
+        Let's make more beautiful memories together.❤️
+    </p>
+    <h2>It's a YES! ♡</h2>
+
+    <button onclick="showPage('menu')">← Back to surprises</button>
+</div>
+</section>
+
+<script>
+
+function unlock() {
+    let code = document.getElementById("passcode").value;
+
+    if (code === "110326") {
+        showPage("menu");
+    } else {
+        document.getElementById("message").innerText =
+        "Oops! Wrong passcode, baby. Try again! 🥺";
+    }
+}
+
+function showPage(id) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+    window.scrollTo(0, 0);
+}
+
+// Floating hearts animation
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = ["💗","💕","💖","🌸","♡"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 9000);
+}
+
+setInterval(createHeart, 500);
+
+</script>
+
+</body>
+</html>
